@@ -14,6 +14,7 @@
 <p align="center">
   <a href="https://agentcfo-frontend.vercel.app"><img src="https://img.shields.io/badge/Demo-Live-059669?style=for-the-badge&labelColor=0f172a" alt="Live Demo"></a>
   <a href="https://agentcfo-backend.onrender.com/health"><img src="https://img.shields.io/badge/API-Render-3B82F6?style=for-the-badge&labelColor=0f172a" alt="Backend"></a>
+  <a href="https://github.com/Aafff623/agent-cfo/wiki"><img src="https://img.shields.io/badge/Wiki-Handbook-8b5cf6?style=for-the-badge&labelColor=0f172a" alt="Wiki"></a>
   <img src="https://img.shields.io/badge/Mode-mock--default-f59e0b?style=for-the-badge&labelColor=0f172a" alt="Mock default">
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="License">
   <a href="https://github.com/Aafff623/agent-cfo"><img src="https://img.shields.io/github/stars/Aafff623/agent-cfo.svg?style=for-the-badge" alt="GitHub stars"></a>
@@ -29,6 +30,7 @@
   · <a href="#repo-structure">Repo structure</a>
   · <a href="#api-参考">API</a>
   · <a href="#文档">Docs</a>
+  · <a href="https://github.com/Aafff623/agent-cfo/wiki">Wiki</a>
   · <a href="#团队">Team</a>
 </p>
 
@@ -45,6 +47,7 @@
 | **上游** | 保留小队协作与赛道叙事；日常开发以本仓为准 |
 | **README 范式** | 对齐 [fork-Firefly](https://github.com/Aafff623/fork-Firefly) 的章节节奏 + 本仓黑客松级 Showcase 密度 |
 | **Preview 产品壳** | **无**独立 Preview 站（单产品）；产品面见 [Showcase](#showcase)。README 本地预览壳是 [`preview-readme.html`](preview-readme.html)（端口 **4173**），与 Console 无关 |
+| **Wiki / 说明书** | [GitHub Wiki](https://github.com/Aafff623/agent-cfo/wiki)；产品 Live 仍用现有 Vercel，不另开文档站 |
 
 硬边界：**LLM 不做授权**；Risk Engine 是唯一 `Ready` / `NeedsApproval` / `Blocked` 裁决层；blocked 项不进 CAW；mock tx ≠ 链上交易。
 
@@ -469,6 +472,7 @@ P2 为 metadata / preview / simulation，不改变 P0 授权与 Audit 不可变�
 
 | 文档 | 说明 |
 |---|---|
+| [GitHub Wiki](https://github.com/Aafff623/agent-cfo/wiki) | 评委 / 试用者手册（Demo · FAQ · Console）；**不**另挂 Vercel 文档站 |
 | [`CONTEXT.md`](CONTEXT.md) · [`CONTEXT-MAP.md`](CONTEXT-MAP.md) | 领域事实与多 Context 路由 |
 | [`AGENTS.md`](AGENTS.md) · [`CLAUDE.md`](CLAUDE.md) | Agent 工作指南 |
 | [`docs/backend/`](docs/backend/README.md) | CAW · 部署 · env · P2 · 测试 |
