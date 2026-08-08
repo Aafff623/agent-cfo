@@ -1,105 +1,61 @@
-# AgentCFO README image prompts
+# AgentCFO README image prompts（待补四张说明图）
 
-## 0. 全局规范
+> Agent **不直接生图**。把本节投喂 GPT Image / img2img；标杆见全局 `readme-polish/references/`。  
+> Showcase（`landing-*` / `console-*`）已是真机截图，**不要**用本文 Prompt 重画 UI。
 
-项目：AgentCFO，DAO AI Treasury。
+## §0 全局规范
 
-视觉总调：dark command center，charcoal background，lime primary accent，cyan/blue/violet/coral status accents，flat technical UI，precise grid，subtle glass panels，no decorative crypto coins。
+| 项 | 值 |
+|---|---|
+| 产品 | AgentCFO — DAO AI Treasury |
+| 气质 | 深色 command center · 审计 / 风控 / 受控钱包 |
+| 色板 | 背景 `#0f172a` · 主强调 lime `#84cc16` · 辅 cyan `#22d3ee` · 警告 amber `#f59e0b` · 危险 coral `#f43f5e` · 文字近白 |
+| 硬约束 | 4–6 色；统一描边；正交连线；无金币雨；无假 tx 数字 |
+| 命名 | 落盘 `assets/images/readme/{asset}.png` |
+| 系统指令（可粘贴） | You design crisp technical README diagrams for a DAO treasury AI product. Flat/semi-flat, 4–6 colors, dark slate background, lime/cyan accents. No crypto meme coins, no illegible micro-text, no fake UI screenshots. |
 
-证据规则：
+---
 
-- mock 不显示真实 txHash；
-- testnet 必须标 network；
-- 不生成 API key、私钥、二维码或虚构余额；
-- 不声称 mainnet、production 或 tamper-proof，除非输入材料提供证据。
+## 1. `features.png`
 
-命名：
+| 字段 | 内容 |
+|---|---|
+| 比例 | 16:9 或 2:1 |
+| 挂载 | README `#features` |
+| 结构 | 2×3 或 3×2 模块卡：Payment Plan · Risk Check · Human Approval · CAW · Audit · Mock Mode |
+| 每卡 | 统一线图标 + 短英文标题 + 一行中文或英文说明 |
+| English Prompt | Dark slate README features board for AgentCFO. Six equal cards in two rows: AI Payment Plan, Risk Check, Human Approval, CAW Execution, Audit Report, Mock Mode. Lime and cyan accents, consistent stroke icons, generous padding, no fake dashboards, no coin rain. |
+| Avoid | 彩虹色块、3D 贴纸、伪 Console 截图 |
 
-```text
-banner.png
-features.png
-architecture.png
-tech-stack.png
-workflow.png
-structure.png
-preview-shell.png
-showcase-<name>.png
-```
+## 2. `workflow.png`
 
-### 给图像模型的系统指令
+| 字段 | 内容 |
+|---|---|
+| 挂载 | README `#workflow` |
+| 结构 | 单主路径六节点：Records → Plan → Risk → Approval → CAW → Audit；Risk 处分叉到 Blocked（次要） |
+| English Prompt | Horizontal workflow diagram on dark slate: Contribution Records to AI Payment Plan to Risk Check diamond to Human Approval to Cobo Agentic Wallet to Audit Report. Secondary branch from Risk Check labeled Blocked in coral. Orthogonal arrows, lime nodes, cyan connectors, readable labels only. |
+| Avoid | 蜘蛛网连线、超过 2 条主分支 |
 
-```text
-Create a documentation illustration for AgentCFO, a controlled DAO treasury agent.
-Use the supplied screenshot as the factual source. Preserve all product names and
-status labels. Do not invent transaction hashes, balances, wallet addresses, or
-live integrations. Render a dark editorial command-center aesthetic with a strict
-grid, lime accent, and restrained cyan, blue, violet, and coral semantic colors.
-No gradients, coin imagery, cyberpunk clutter, or marketing superlatives.
-```
+## 3. `architecture.png`
 
-## 1. banner.png
+| 字段 | 内容 |
+|---|---|
+| 风格 | client-server 分层（Browser → FastAPI → Planner / Risk / CAW / Store） |
+| 挂载 | README `#architecture` |
+| English Prompt | Clean layered architecture for AgentCFO. Top: Next.js Browser Console and Landing. Middle: FastAPI API gateway. Bottom services in a row: Payment Planner, Risk Engine, Human Approval Gate, CAW Adapter Mock/Real, SQLite Store, Audit Report. Side note: Agent Chat to MiniMax with no fund authority. Dark slate, lime/cyan, orthogonal only, one style. |
+| Avoid | 混用 C4 + 洋葱 + AWS 图标墙 |
 
-- 比例：3:1
-- 描述：AgentCFO 品牌横幅，突出 controlled wallet 与 policy-enforced payout flow
-- 元素：AgentCFO 标题、Contribution → Plan → Risk → Approval → CAW → Audit
+## 4. `tech-stack.png`
 
-```text
-Wide 3:1 documentation banner for "AgentCFO — DAO AI Treasury".
-Centered product name, compact subtitle "Give every DAO an AI CFO with a controlled wallet",
-and a precise six-step payout flow: Contribution, Plan, Risk, Approval, CAW, Audit.
-Dark charcoal background, lime primary accent, thin technical lines, restrained semantic colors,
-high legibility at GitHub README width, no fake transaction data, no crypto coins.
-```
+| 字段 | 内容 |
+|---|---|
+| 分工 | 只展示技术名分层，不重复 architecture 拓扑 |
+| English Prompt | Tech stack strip diagram for AgentCFO. Rows: Frontend Next.js React TypeScript Tailwind; Backend Python FastAPI Pydantic pytest; AI MiniMax and optional OpenAI planner; Data SQLite; Wallet cobo-agentic-wallet. Icon-wall or labeled bands, dark slate, lime accents, real tech names only. |
+| Avoid | 与 architecture 同一构图、虚构框架名 |
 
-## 2. workflow.png
+## Showcase（勿生图）
 
-- 比例：16:9
-- 描述：主业务闭环与授权边界
-- 重点：Risk Engine、Human Approval、CAW 三道边界
-
-```text
-16:9 architecture workflow for AgentCFO. Show six left-to-right stages:
-Contribution Records, Payment Plan, Deterministic Risk Engine, Human Approval,
-Cobo Agentic Wallet, Audit Report. Visually emphasize the three authorization boundaries:
-Risk Engine, Human Approval, and CAW policy. Mark LLM as explanation-only.
-Use flat technical UI, dark background, lime accent, no fabricated metrics or hashes.
-```
-
-## 3. architecture.png
-
-- 比例：16:9
-- 描述：Next.js、FastAPI、Planner、Risk、CAW Adapter、SQLite/Audit 的部署关系
-
-```text
-16:9 system architecture diagram for AgentCFO. Layers: Next.js frontend on Vercel,
-FastAPI backend on Render, planner service, deterministic risk engine, approval gate,
-CAW adapter with Mock and opt-in Real Testnet branches, SQLite audit store.
-Clearly label production defaults as mock-demo and Real CAW as opt-in testnet.
-Clean engineering diagram, dark neutral palette, lime accent, no unsupported cloud services.
-```
-
-## 4. tech-stack.png
-
-- 比例：16:9
-- 描述：技术栈按 frontend、backend、wallet、delivery 分组
-
-```text
-16:9 grouped technology stack graphic for AgentCFO.
-Frontend: Next.js 16, React 19, TypeScript, Tailwind CSS v4.
-Backend: Python, FastAPI, Pydantic, pytest, SQLite.
-Wallet: Cobo Agentic Wallet SDK, Sepolia testnet.
-Delivery: Vercel, Render, GitHub.
-Use factual logos only when recognizable, otherwise use text labels.
-```
-
-## 5. structure.png
-
-- 比例：4:3
-- 描述：Monorepo 和 Project Init 兼容层
-
-```text
-4:3 repository structure diagram. Show product roots frontend/, app/, tests/;
-governance roots docs/agents, docs/contexts, docs/outputs; asset flow inbox/ to assets/;
-and compatibility links from existing docs/pm, docs/backend, frontend/docs.
-Use a readable tree layout with clear canonical-versus-mapping labels.
-```
+| 资产 | method |
+|---|---|
+| `landing-*.png` · `console-*.png` | screenshot（已有） |
+| 重截建议 | 本地 `PORT=3100 pnpm dev` 或 Live Demo；UI 大改后再覆盖同名文件 |
