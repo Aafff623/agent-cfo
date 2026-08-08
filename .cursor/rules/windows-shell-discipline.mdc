@@ -1,25 +1,25 @@
 ---
-description: Windows 下 Shell 命令路径 quoting 和重定向规范
+description: Windows 下 Shell 命令 quoting 和重定向规范（Cursor 默认 PowerShell）
 alwaysApply: true
 ---
 
 # Windows Shell Discipline
 
-在 Windows 上执行任何 Shell 命令时，必须遵守：
+> 操作层细则；规范入口见 `AGENTS.mdc` §17。与 `windows-path-discipline` 分工：本文件管 **Shell 命令串**；文件工具路径见 path 规则。
+
+Cursor Agent 默认 Shell 按 **PowerShell** 处理（勿假设 Git Bash / `~/.bashrc` / POSIX-only）。
 
 ## 路径 quoting
 - 带空格或反斜杠的路径**必须加双引号**
-- 正确：`cd "C:\Users\xxx\My Project" && git status`
-- 错误：`cd C:\Users\xxx\My Project && git status`（会被拆掉）
+- 正确：`cd "C:\Users\xxx\My Project"; git status`
+- 错误：`cd C:\Users\xxx\My Project`（会被拆掉）
 
 ## 重定向
-- 禁止使用 `/dev/null`
-- 一律改用 `nul`
-- 正确：`npm install >nul 2>&1`
+- 禁止 `/dev/null`（Linux 习惯，在此环境无效或危险）
+- PowerShell 优先：`> $null` / `Out-Null`；cmd 风格可用 `>nul 2>&1`
 - 错误：`npm install >/dev/null 2>&1`
 
-## 其他注意点
-- `cd` 之后尽量不要直接接复杂 pipe（容易出 FINDSTR 类错误）
-- 常规工具（git、npm、node、docker）优先用 Bash 风格
-- 涉及注册表、.NET、系统服务时改用 PowerShell
-- 路径里有空格或特殊字符时，宁可多加引号也不要省
+## 其他
+- 涉及注册表、.NET、系统服务：用 PowerShell cmdlet
+- 明确进入 Git Bash 时再使用 POSIX 语法；从 Bash 拿回路径喂文件工具前，先转 Windows 原生（见 path 规则）
+- 路径有空格或特殊字符时宁可多加引号

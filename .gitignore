@@ -12,6 +12,9 @@ cobo-agentic-wallet-backend-quickstart.md
 .claude/worktrees/
 Untitled
 
+# Local agent staging (release-post / wiki-post drafts; do not commit)
+.scratch/
+
 # Reproducible ppt-master artifacts
 assets/theme/ppt/**/.live_preview.lock
 assets/theme/ppt/**/exports/
