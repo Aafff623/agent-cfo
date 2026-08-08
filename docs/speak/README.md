@@ -1,7 +1,7 @@
-# Moved: scripts
+# Compatibility stub: `docs/speak/`
 
-路演稿、Demo 逐字稿、录制指南与成员口述已迁移到：
+讲稿 **现存物理路径**：[`../../assets/theme/script/`](../../assets/theme/script/)。
 
-[`assets/theme/script/`](../../assets/theme/script/)
+project-init **canonical** 目标：`assets/speeches/`（尚未物理迁入）。
 
-本目录只保留兼容入口。新讲稿统一写入 canonical 路径。
+新讲稿写入现存 `assets/theme/script/` 或创建 `assets/speeches/` 并更新 [`../../assets/ASSET-MAP.md`](../../assets/ASSET-MAP.md)。勿在本目录堆正文副本。

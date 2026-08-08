@@ -1,5 +1,13 @@
 # Domain map
 
+> Matt `setup-matt-pocock-skills` / `domain-modeling` 消费本文件。领域术语细节在根 `CONTEXT.md` 与 `docs/contexts/*`。
+
+## 布局
+
+- **多 Context**：根 `CONTEXT-MAP.md` → `docs/contexts/{product,frontend,backend,assets}.md`
+- **系统级 ADR**：`docs/adr/`
+- 读领域词先 CONTEXT，再改代码；变更术语时用 `domain-modeling` 写回 CONTEXT / ADR
+
 ## 核心领域
 
 | 领域 | 责任 | 代码 / 文档 |
@@ -19,10 +27,11 @@ LLM 不得决定 Risk、Approval 或 CAW policy。生产环境中的 `approvedBy
 
 ## 事实层级
 
-1. 运行时代码和测试；
-2. `README.md` 与 `docs/backend/`;
-3. `docs/output/` 中已批准的 PRD 与 handoff；
-4. `docs/pm/` 历史任务记录；
-5. PPT、视频和营销文案。
+1. 运行时代码和测试（最高）；
+2. 根 `CONTEXT.md` / `LANGUAGES.md` / `AGENTS.md`；
+3. `README.md` 与 `docs/backend/`（人读；不得推翻代码）；
+4. `docs/outputs/` 中已批准的 PRD 与 handoff；
+5. `docs/pm/` 历史任务记录；
+6. PPT、视频和营销文案。
 
 下层来源不得推翻上层事实。

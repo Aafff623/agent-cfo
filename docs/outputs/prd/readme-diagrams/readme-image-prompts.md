@@ -99,7 +99,7 @@ Use factual logos only when recognizable, otherwise use text labels.
 
 ```text
 4:3 repository structure diagram. Show product roots frontend/, app/, tests/;
-governance roots docs/agents, docs/contexts, docs/output; asset flow inbox/ to assets/;
+governance roots docs/agents, docs/contexts, docs/outputs; asset flow inbox/ to assets/;
 and compatibility links from existing docs/pm, docs/backend, frontend/docs.
 Use a readable tree layout with clear canonical-versus-mapping labels.
 ```

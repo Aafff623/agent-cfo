@@ -1,11 +1,28 @@
 # AgentCFO — Claude Code 仓库指南
 
-> **Output Style**: `humanizer-output-style` skill — 统一语气与去 AI 味。仓库规则见 `docs/agents/voice.md`。
-> **Context**: `CONTEXT.md` → `CONTEXT-MAP.md` → `docs/contexts/*`。
+> **Output Style**: `humanizer-tta` — see `~/.agents/skills/humanizer-tta/SKILL.md` · 仓库细则 `docs/agents/voice.md`
+> **Context**: `CONTEXT.md` → `CONTEXT-MAP.md` → `docs/contexts/*`
+> **Shared vocab**: 根 `LANGUAGES.md`
+> **Windows / Answer / Commit rules**: `.cursor/rules/` 五份 MDC（path · shell · answer-format · AGENTS.mdc · commit-history）
 
 > 团队 monorepo 入口。做**前端**工作时，读完本节后转到 **`frontend/CLAUDE.md`**（前端总纲，优先级更高）。  
 > **工作流 Skills**（description Session 常驻，正文动态）：`.claude/skills/agent-cfo-monorepo-workflow/` · `.claude/skills/frontend-agent-workflow/`（`paths: frontend/**`）  
-> **加载披露**：`frontend/docs/agent-context-loading.md`
+> **加载披露**：`frontend/docs/agent-context-loading.md`  
+> **流程产物**：`docs/outputs/{report,prd,handoff,commit-history}/`（复数；旧 `docs/output/` 已废弃）
+
+## Agent skills
+
+### Issue tracker
+
+GitHub Issues。见 `docs/agents/issue-tracker.md`。
+
+### Triage labels
+
+Matt 五态。见 `docs/agents/triage-labels.md`。
+
+### Domain docs
+
+多 Context。见 `docs/agents/domain.md`。
 
 ## Context 加载（Claude Code）
 
@@ -37,8 +54,8 @@ README 本地预览：在仓库根运行 `python -m http.server 4173`，打开 `
 | **合约** | （待团队约定） | — | 与 CAW / 链上交互相关 |
 
 ```text
-docs/     → 文字文档（backup / backend / plans / pm / p2 / reports）
-assets/   → 交付资产（ppt / video / images/readme / design）
+docs/     → 文字文档 + agents + contexts + outputs（流程产物）+ pm/backend/plans…
+assets/   → 交付资产（物理现状含 theme/ppt·script；canonical 见 assets/ASSET-MAP.md）
 inbox/    → 待归类投递（整理后迁入 assets/ 或 docs/）
 frontend/docs/ → 前端开发专项文档（与竞赛交付文档分开）
 ```
@@ -117,16 +134,17 @@ Agent Hub 聊天经后端代理 [MiniMax OpenAI 兼容 API](https://platform.min
 
 ## 竞赛交付物
 
-| 资产 | 路径 |
+| 资产 | 路径（现存物理） |
 |---|---|
 | 待归类投递 | `inbox/` |
-| 路演 PPT（ppt-master） | `assets/theme/ppt/agentcfo-pitch.pptx` |
+| 路演 PPT（ppt-master） | `assets/theme/ppt/agentcfo-pitch.pptx`（canonical 目标 `assets/ppt/`，见 `ASSET-MAP.md`） |
 | 路演 PPT（物料同学 PDF） | `assets/theme/ppt/material/agentcfo-pitch-material-team-v1.pdf` |
 | PPT 源工程 | `assets/theme/ppt/agentcfo-pitch/` |
 | 答辩视频 | `assets/video/`（公开链接写入 `README.md` § Demo Video） |
 | 提交清单 | `docs/pm/SUBMISSION_CHECKLIST.md` |
 | README 合并规划 | `docs/plans/README-merge-plan.md` |
-| README 展示用图 | `assets/images/readme/` |
+| README 展示用图 / Showcase | `assets/images/readme/` |
+| theme 流程产物 | `docs/outputs/{report,prd,handoff}/` |
 
 ## Demo 数据（全团队对齐）
 

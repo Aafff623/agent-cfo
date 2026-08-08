@@ -13,9 +13,11 @@
 | --- | --- |
 | README 历史快照 | `docs/backup/` |
 | 上游二进制资产备份 | `assets/backup/` |
-| 已完成 theme 的报告、PRD、handoff | 保留在 `docs/output/<type>/<theme>/` |
-| commit 批次说明 | `docs/commit-history/` |
-| 前端 phase 历史 | `frontend/docs/handoff/` |
+| 已完成 theme 的报告、PRD、handoff | 保留在 `docs/outputs/<type>/<theme>/` |
+| commit 批次说明 | `docs/outputs/commit-history/{branch}/`；合并后分支移入 `…/archive/` |
+| 前端 phase 历史 | `frontend/docs/handoff/`（Console 专项，非 project-init theme handoff） |
+
+旧路径 `docs/output/`、顶层 `docs/commit-history/` 仅留重定向 stub。
 
 ## 完成条件
 

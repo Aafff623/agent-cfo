@@ -7,24 +7,26 @@
 1. 新外部文件先放进 inbox；
 2. 文件名必须能说明来源和用途，不使用 hash 文件名；
 3. 核对许可、隐私、密钥和事实边界；
-4. 按下表迁入 canonical 路径；
+4. 按下表迁入目标路径（见 `assets/ASSET-MAP.md`）；
 5. 更新资产索引和引用；
 6. 验证后删除 inbox 原文件。
 
 ## 归类目标
 
-| 类型 | Canonical 路径 |
-| --- | --- |
-| README 图片 | `assets/images/readme/` |
-| 团队头像与吉祥物 | `assets/images/avatar/` |
-| Console 参考图与模块图 | `assets/images/console/` |
-| Logo 与品牌设计 | `assets/images/icon/` |
-| PPT、PDF 与源工程 | `assets/theme/ppt/` |
-| 路演稿、Demo 文案 | `assets/theme/script/` |
-| 视频 | `assets/video/` |
-| 不可重建的上游原件 | `assets/backup/` |
-| 产品与技术文档 | `docs/` |
-| 前端运行时镜像 | `frontend/public/` |
+| 类型 | 优先写入（现存可写） | project-init canonical |
+| --- | --- | --- |
+| README / Showcase 图 | `assets/images/readme/` | 同左 |
+| 团队头像与吉祥物 | `assets/images/avatar/` | 同左 |
+| Console 参考图 | `assets/images/console/` | 本仓扩展 |
+| Logo 与品牌设计 | `assets/images/icon/` | 同左 |
+| PPT、PDF 与源工程 | `assets/theme/ppt/`（现存） | `assets/ppt/` |
+| 路演稿、Demo 文案 | `assets/theme/script/`（现存） | `assets/speeches/` |
+| 视频 | `assets/video/` | 同左 |
+| 不可重建的上游原件 | `assets/backup/` | 同左 |
+| 产品与技术文档 | `docs/`（流程产物进 `docs/outputs/`） | — |
+| 前端运行时镜像 | `frontend/public/` | — |
+
+禁止新建 `docs/images/`。
 
 ## 当前状态
 

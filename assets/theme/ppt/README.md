@@ -1,6 +1,11 @@
-# Pitch deck assets
+# Pitch deck assets（现存物理路径）
 
-本目录是 AgentCFO 路演 PPT 的 canonical 路径。
+> **本目录不是 canonical。**  
+> project-init / [`ASSET-MAP`](../../ASSET-MAP.md) 的规范目标是 **`assets/ppt/`**。  
+> 本路径为竞赛期遗留的 **on-disk / 兼容路径**；物理迁移完成前，读写二进制请用本目录。  
+> 冲突时以 `assets/ASSET-MAP.md` 为准。
+
+兼容 stub（无二进制副本）：[`assets/ppt/README.md`](../../ppt/README.md)。
 
 ## 当前资产
 

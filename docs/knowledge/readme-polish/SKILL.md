@@ -97,9 +97,9 @@ powershell -File "$env:USERPROFILE\.agents\skills\readme-polish\scripts\scaffold
 
 产出章节大纲 + 配图节点表（含 Preview / Showcase + 选用的 architecture 标杆文件名），写入：
 
-`docs/output/prd/readme-diagrams/readme-diagram-brief.md`
+`docs/outputs/prd/readme-diagrams/readme-diagram-brief.md`
 
-（若仓仍用旧路径 `docs/output/reports/`，先按 project-init 迁到 `prd/`，或与用户确认临时路径。）
+（旧笔误 `docs/output/` 单数已废弃；一律用 `docs/outputs/`。）
 
 ### Step 2 — 配图（契约文件名 + 标杆 Prompt）
 
@@ -121,7 +121,7 @@ powershell -File "$env:USERPROFILE\.agents\skills\readme-polish\scripts\scaffold
 
 #### 2.1 产出 `readme-image-prompts.md`（执行层，关键）
 
-路径：`docs/output/prd/readme-diagrams/readme-image-prompts.md`
+路径：`docs/outputs/prd/readme-diagrams/readme-image-prompts.md`
 
 结构要求：
 
@@ -254,7 +254,7 @@ project-root/
 │   ├── workflow.png · structure.png
 │   ├── preview-shell.png · preview-*.png
 │   └── showcase-*.png
-└── docs/output/prd/readme-diagrams/
+└── docs/outputs/prd/readme-diagrams/
     ├── readme-diagram-brief.md
     ├── readme-image-prompts.md      # 含 reference_image + 反推 Prompt
     ├── visual-standards.md          # 可选：从 skill scaffold

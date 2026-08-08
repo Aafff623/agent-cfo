@@ -1,43 +1,51 @@
 # AgentCFO 交付资产
 
-竞赛路演与提交用的**可交付资产**统一放在本目录。技术文档见 [`../docs/`](../docs/)。
+竞赛路演与提交用的**可交付资产**统一放在本目录。技术文档见 [`../docs/`](../docs/)。  
+路径规范与债务见 [`ASSET-MAP.md`](ASSET-MAP.md)。**冲突时以最新 project-init 为准。**
 
-## 目录结构
+## 目录结构（如实）
 
-```
+```text
 assets/
-├── backup/                 # 外部上游二进制资产只读备份
+├── backup/                 # 上游二进制只读备份
 ├── video/                  # 答辩 / Demo 视频
-├── images/                 # 截图、海报、流程图
-│   ├── readme/             # 根目录 README 用图（banner、showcase）
-│   ├── avatar/             # 团队头像与 3D 吉祥物
-│   ├── icon/               # Logo、品牌图标与设计源文件
-│   └── console/            # Console 模块吉祥物 + 聚合参考页（见 images/console/README.md）
-└── theme/
-    ├── ppt/                # PPT、PDF、SVG、notes 与源工程
-    └── script/             # 路演稿、Demo 逐字稿、成员口述
+├── images/
+│   ├── readme/             # README 配图 + Showcase（banner / showcase-*）
+│   ├── avatar/
+│   ├── icon/
+│   └── console/            # Console 模块图（本仓扩展）
+├── theme/                  # ⚠ 物理债务区（竞赛期路径）
+│   ├── ppt/                # 现存 PPT；canonical 目标 → assets/ppt/
+│   └── script/             # 现存讲稿；canonical 目标 → assets/speeches/
+├── ppt/README.md           # 跳转说明（勿假装二进制已迁移）
+└── ASSET-MAP.md
 ```
+
+按需创建：空的 `avatar/` / `icon/` / `video/` 槽位不要用 `.gitkeep` 凑齐。禁止 `docs/images/`。
 
 ## 当前状态
 
-| 资产 | 路径 | 状态 |
+| 资产 | 现存路径 | 状态 |
 | --- | --- | --- |
-| 路演 PPT（ppt-master） | `theme/ppt/agentcfo-pitch.pptx` | ✅ 已生成（14 页，含演讲备注） |
-| 路演 PPT（物料同学 PDF） | `theme/ppt/material/agentcfo-pitch-material-team-v1.pdf` | ✅ 已归类 |
-| PPT 源工程 | `theme/ppt/agentcfo-pitch/` | ✅ SVG、notes、设计规范与导出 |
-| 路演与 Demo 讲稿 | `theme/script/` | ✅ 主叙事、流程、成员稿、录制指南 |
-| 答辩视频 | `video/agentcfo-demo.mp4` | ✅ 已录制 |
-| README Banner | `images/readme/banner.png` | ✅ 已归类（3:1，1200×400） |
-| README Showcase | `images/readme/landing-*.png` · `console-*.png` | ✅ Landing 8 张；Console 单页截图 5 张 |
-| Console 模块吉祥物 | `images/console/module-mascots/*-module-mascot.png` | ✅ 5 张（2026-06-13 从 inbox 归类） |
-| Console 聚合参考页 | `images/console/references/ref-*.png` | ✅ 4 张混排布局参考 |
-| 团队头像与吉祥物 | `images/avatar/` | ✅ 6 位成员，共 12 个文件 |
-| 项目 Logo | `images/icon/` | ☐ 待正式设计源文件 |
-| Demo 流程分步截图 | `images/` | ☐ 低优先级（有 Showcase 即可） |
+| 路演 PPT（ppt-master） | `theme/ppt/agentcfo-pitch.pptx` | ✅ |
+| 路演 PPT（物料同学 PDF） | `theme/ppt/material/agentcfo-pitch-material-team-v1.pdf` | ✅ |
+| PPT 源工程 | `theme/ppt/agentcfo-pitch/` | ✅ |
+| 路演与 Demo 讲稿 | `theme/script/` | ✅ |
+| 答辩视频 | `video/agentcfo-demo.mp4` | ✅ |
+| README Banner / Showcase | `images/readme/` | ✅ |
+| Console 模块吉祥物 / 参考 | `images/console/` | ✅ |
+| 团队头像 | `images/avatar/` | ✅ |
+| 项目 Logo | `images/icon/` | ☐ 待正式源文件 |
 
 ## 投递与归类
 
-未归类文件先放 `inbox/`（见 `inbox/README.md`），整理后迁入上述标准目录并删除 `inbox/` 原文件。旧路径仅保留跳转 README，不再接收新资产。
+未归类文件先放 `inbox/`（见 `inbox/README.md`），整理后迁入上表路径并删除 `inbox/` 原文件。
+
+## Preview / Showcase（媒体侧）
+
+- **Showcase 图**：`images/readme/showcase-*.png` 或既有 `landing-*.png` / `console-*.png`
+- **Preview 站**：本仓为单产品应用，一般不单独建资产 Gallery；见根 `LANGUAGES.md`
+- **preview-readme**：在仓库根，不属于 `assets/`
 
 ## 重新导出 PPT
 
@@ -45,4 +53,4 @@ assets/
 python .claude/skills/ppt-master/scripts/svg_to_pptx.py assets/theme/ppt/agentcfo-pitch
 ```
 
-导出文件会写入 `assets/theme/ppt/agentcfo-pitch/exports/`。确认无误后，复制到 `assets/theme/ppt/agentcfo-pitch.pptx` 作为交付版本。
+导出写入 `assets/theme/ppt/agentcfo-pitch/exports/`。确认后复制到 `assets/theme/ppt/agentcfo-pitch.pptx`。

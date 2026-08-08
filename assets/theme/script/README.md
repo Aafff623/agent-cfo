@@ -1,4 +1,9 @@
-# assets/theme/script — 路演与 Demo 陈述稿
+# assets/theme/script — 路演与 Demo 陈述稿（现存物理路径）
+
+> **本目录不是 canonical。**  
+> project-init / [`ASSET-MAP`](../../ASSET-MAP.md) 的规范目标是 **`assets/speeches/`**（旧名 `script`）。  
+> 本路径为竞赛期遗留的 **on-disk / 兼容路径**；物理迁移完成前，读写文稿请用本目录。  
+> 冲突时以 `assets/ASSET-MAP.md` 为准。
 
 > 团队分工口述、视频旁白、答辩引入的统一收录目录。  
 > 生成日期：2026-06-13
@@ -29,5 +34,5 @@
 
 - GitHub：https://github.com/San-Y108/agent-cfo
 - 在线 Demo：https://agentcfo-frontend.vercel.app
-- PPT：`assets/theme/ppt/agentcfo-pitch.pptx`（14 页）· 演讲备注见 `assets/theme/ppt/agentcfo-pitch/notes/`
+- PPT（现存物理）：`assets/theme/ppt/agentcfo-pitch.pptx`（canonical 目标 `assets/ppt/`）· 演讲备注见同目录 `agentcfo-pitch/notes/`
 - 提交清单：`docs/pm/SUBMISSION_CHECKLIST.md`

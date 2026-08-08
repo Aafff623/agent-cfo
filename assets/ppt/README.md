@@ -1,7 +1,7 @@
-# Moved: PPT assets
+# Compatibility stub: `assets/ppt/`
 
-PPT、PDF、SVG、notes 与源工程已迁移到：
+project-init **canonical** 目标是本目录（`assets/ppt/`）。
 
-[`assets/theme/ppt/`](../theme/ppt/)
+**现存物理文件仍在** [`../theme/ppt/`](../theme/ppt/)（竞赛期路径债务）。
 
-本目录只保留兼容入口。不要在这里新增或复制 PPT 文件。
+在完成物理迁移前：读写二进制请用 `assets/theme/ppt/`；不要在本目录假装已有 PPT 副本。映射见 [`../ASSET-MAP.md`](../ASSET-MAP.md)。

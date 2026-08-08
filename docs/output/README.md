@@ -1,26 +1,12 @@
-# Theme outputs
+# Deprecated: `docs/output/`（单数）
 
-新业务工作统一进入：
+> **已迁移。** 流程产物目录现为 **`docs/outputs/`**（复数）。
 
-```text
-docs/output/
-├── report/<theme>/
-├── prd/<theme>/
-└── handoff/<theme>/
-```
+| 旧路径 | 新路径 |
+| --- | --- |
+| `docs/output/report/` | [`../outputs/report/`](../outputs/report/) |
+| `docs/output/prd/` | [`../outputs/prd/`](../outputs/prd/) |
+| `docs/output/handoff/` | [`../outputs/handoff/`](../outputs/handoff/) |
+| （顶层）`docs/commit-history/` | [`../outputs/commit-history/`](../outputs/commit-history/) |
 
-## 状态流
-
-```text
-report（可选）
-→ PRD draft
-→ 用户 approved
-→ handoff
-→ 实施
-→ awaiting-review
-→ accepted
-```
-
-现有 `docs/pm/`、`docs/backend/`、`docs/reports/` 与 `frontend/docs/` 保持原位。它们是历史和领域专项文档，不批量迁移。
-
-首个 theme：`treasury-payout`。
+请更新书签与 Agent 提示；不要再向本目录写入新文件。

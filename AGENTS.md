@@ -1,9 +1,40 @@
 # AgentCFO — AI Agent 工作指南
 
-> **Output Style**: `humanizer-output-style` skill — 统一语气与去 AI 味。仓库规则见 `docs/agents/voice.md`。
-> **Context**: `CONTEXT.md` → `CONTEXT-MAP.md` → `docs/contexts/*`。
+> **Output Style**: `humanizer-tta` skill — 常驻语气人格（Hermes 工程师口吻）+ 成稿去 AI 味。加载路径：`~/.agents/skills/humanizer-tta/SKILL.md` · 仓库细则 `docs/agents/voice.md`
+> **Context**: `CONTEXT.md` → `CONTEXT-MAP.md` → `docs/contexts/*`
+> **Shared vocab**: 根 `LANGUAGES.md`
+> **Windows / Answer / Commit rules**: `.cursor/rules/windows-path-discipline.mdc` · `windows-shell-discipline.mdc` · `answer-format.mdc` · `AGENTS.mdc` · `commit-history.mdc`（从用户级同步，五份必齐）
 
 > 面向所有 AI coding agent 的仓库级说明。Claude Code 用户可同时读 `CLAUDE.md`。
+
+## 单一事实源
+
+| 事实类型 | 唯一入口 |
+| --- | --- |
+| 领域术语与硬约束 | `CONTEXT.md` + `docs/contexts/*` |
+| 共享用词 | `LANGUAGES.md` |
+| Agent 硬约束 / 任务流门禁 | 本文件 + `docs/agents/workflow.md` |
+| 人读摘要与运行说明 | `README.md` |
+
+禁止维护 `docs/agents/language.md` / `docs/agents/context.md`。流程产物只用 **`docs/outputs/`**（复数）。
+
+## Agent skills
+
+### Issue tracker
+
+GitHub Issues：`https://github.com/San-Y108/agent-cfo/issues`。见 `docs/agents/issue-tracker.md`。
+
+### Triage labels
+
+Matt 五 canonical 状态（`needs-triage` … `wontfix`）。见 `docs/agents/triage-labels.md`。
+
+### Domain docs
+
+多 Context：`CONTEXT-MAP.md` → `docs/contexts/*` + `docs/adr/`。见 `docs/agents/domain.md`。
+
+### 任务流
+
+`Issue → report? → PRD → handoff → 实施 → awaiting-review → commit-history`。细则 `docs/agents/workflow.md` · `deliver.md` · `archive.md`。Bug 八段模板见 `docs/knowledge/project-init.md` §5.0。
 
 ## 1. 你在哪个团队？
 
@@ -12,56 +43,48 @@
 | 任务类型 | 去读 | 只改 |
 |---|---|---|
 | 前端 UI / Console / Landing | `frontend/CLAUDE.md` | `frontend/` |
-| 后端 API / 风控 / CAW adapter | `README.md` + `docs/backend/` + `app/` | `app/`、`tests/` |
+| 后端 API / 风控 / CAW adapter | 契约短链（下节）+ `docs/backend/` + `app/` | `app/`、`tests/` |
 | PM / 排期 / 交付文档 | `docs/README.md` → `docs/pm/` | `docs/`（文字类） |
-| 物料 / PPT / 视频 / 截图 | `inbox/README.md` → `assets/README.md` | 投递放 `inbox/`；归类后只改 `assets/` |
+| 物料 / PPT / 视频 / 截图 | `inbox/README.md` → `assets/README.md` · `ASSET-MAP.md` | 投递放 `inbox/`；归类后只改 `assets/` |
 | 合约 / 链上 | 与合约同学对齐 | 团队约定目录 |
 
-前端任务：**不要**用本文件替代 `frontend/CLAUDE.md`；前端规范以 `frontend/` 内文档为准。
+前端任务：**不要**用本文件替代 `frontend/CLAUDE.md`。
 
-## 2. 核心业务流程
+## 2. 核心业务流程与契约
 
 ```text
 Contribution Records → Payment Plan → Risk Check → Human Approval
   → Cobo Agentic Wallet → Tx Hash → Audit Report
 ```
 
-契约真相：`app/models.py` · `app/routers/payments.py` · `tests/test_mvp_flow.py`
+**契约真相（代码 + 测试，勿以文档臆造字段/端点）：**
 
-Agent Hub 聊天（MiniMax 代理）：`POST /api/agent/chat` · `app/routers/agent.py` · `app/services/agent_chat.py` · `tests/test_agent_chat.py` · 前端 `frontend/lib/api/agent.ts`。Key 仅在后端 `MINIMAX_API_KEY`，不进入前端 env。
+- `app/models.py`
+- `app/routers/payments.py`
+- `tests/test_mvp_flow.py`
 
-## 3. 仓库地图
+Agent Hub 聊天：`POST /api/agent/chat` · `app/routers/agent.py` · `app/services/agent_chat.py` · `tests/test_agent_chat.py` · 前端 `frontend/lib/api/agent.ts`。Key 仅在后端 `MINIMAX_API_KEY`。
+
+部署 URL / env 以当前代码、测试与平台控制台为准；文档中的 Render/Vercel 句若与运行时冲突，以可验证运行时为准。
+
+## 3. 仓库地图（治理相关）
 
 ```text
 agent-cfo/
-├── README.md           项目首页（合并后：polish 结构 + 技术摘要）
-├── docs/backup/        合并前 README 备份
-├── docs/backend/       后端技术深文档（从 README 拆出）
-├── AGENTS.md           本文件（全 agent 工作指南）
-├── CLAUDE.md           Claude Code 团队边界入口
-├── app/                FastAPI 后端
-├── tests/              pytest
-├── frontend/           Next.js 前端（Console + Landing）
-│   └── docs/           前端专项 plans / handoff / UI 研究
-├── docs/               竞赛与项目文字文档（入口 docs/README.md）
-│   ├── backup/         README 合并前备份（只读）
-│   ├── backend/        后端技术深文档（CAW / 部署 / P2；合并时拆出）
-│   ├── plans/          规划文档（含 README-merge-plan）
-│   ├── pm/             任务看板、提交清单、彩排
-│   ├── p2/             P2 能力边界说明
-│   └── reports/        阶段报告
-├── assets/             竞赛交付资产（入口 assets/README.md）
-│   ├── ppt/            路演 PPT + ppt-master 源工程 + material/
-│   ├── video/          答辩 / Demo 视频
-│   ├── images/         截图、海报；README 用图在 images/readme/
-│   └── design/         Logo、海报设计稿
-├── inbox/              待归类投递区（入口 inbox/README.md）
-└── .claude/skills/     仓库级 agent skills（含 ppt-master、gitnexus、agent-cfo-monorepo-workflow）
+├── README.md · CONTEXT.md · LANGUAGES.md · AGENTS.md · CLAUDE.md
+├── CONTEXT-MAP.md
+├── app/ · tests/ · frontend/
+├── docs/
+│   ├── agents/          workflow · deliver · archive · domain · issue-tracker · triage-labels · voice · port-registry
+│   ├── contexts/ · adr/ · knowledge/ · glossary/
+│   ├── outputs/         report · prd · handoff · commit-history   ← 流程产物（复数）
+│   ├── pm/ · backend/ · plans/ · reports/ · backup/              ← 历史/专项（不机械搬迁）
+├── assets/              见 ASSET-MAP（canonical vs 现存物理路径）
+├── inbox/
+└── .cursor/rules/       五份 MDC（alwaysApply）
 ```
 
-**frontend 专属 skills**：`frontend/.claude/skills/`（含 `frontend-agent-workflow`）
-
-**文档 vs 资产 vs 投递**：`docs/` 放 Markdown 与清单；`assets/` 放 PPT、视频、图片等已归类交付物；`inbox/` 放待整理投递。不要混放。
+旧叙事 `docs/output/`（单数）、顶层 `docs/commit-history/`、`docs/images/`：**禁止新建**；已有 stub 重定向到 `docs/outputs/`。
 
 ## 4. 常用命令
 
@@ -79,59 +102,55 @@ curl -X POST http://127.0.0.1:8000/api/agent/chat \
 PORT=3100 pnpm dev
 pnpm typecheck && pnpm build
 
+# README 本地预览壳（非 Preview 站、非 Showcase）
+python -m http.server 4173
+# → http://127.0.0.1:4173/preview-readme.html
+
 # 代码图谱
 npx gitnexus status
-npx gitnexus analyze   # 索引过期时
+npx gitnexus analyze
 ```
 
 ## 5. 交付物速查
 
-| 资产 | 路径 |
-|---|---|
-| 待归类投递 | `inbox/`（见 `inbox/README.md`） |
-| 路演 PPT（ppt-master） | `assets/theme/ppt/agentcfo-pitch.pptx` |
-| 路演 PPT（物料同学 PDF） | `assets/theme/ppt/material/agentcfo-pitch-material-team-v1.pdf` |
-| PPT 源工程 | `assets/theme/ppt/agentcfo-pitch/` |
-| 答辩视频 | `assets/video/`（链接写入 `README.md` § Demo Video） |
-| 提交清单 | `docs/pm/SUBMISSION_CHECKLIST.md` |
-| README 合并规划 | `docs/plans/README-merge-plan.md` |
-| README 合并前备份 | `docs/backup/`（Phase 0 生成） |
-| README 展示用图 | `assets/images/readme/` |
+| 资产 | 路径（现存物理） | 备注 |
+|---|---|---|
+| 待归类投递 | `inbox/` | 见 `inbox/README.md` |
+| 路演 PPT / 源工程 | `assets/theme/ppt/…` | project-init canonical 目标：`assets/ppt/`；见 `ASSET-MAP.md` |
+| 路演讲稿 | `assets/theme/script/` | canonical 目标：`assets/speeches/` |
+| 答辩视频 | `assets/video/` | |
+| README 图 / Showcase | `assets/images/readme/` | |
+| 提交清单 | `docs/pm/SUBMISSION_CHECKLIST.md` | |
+| theme 流程产物 | `docs/outputs/{report,prd,handoff}/` | |
 
-收到 `inbox/` 新文件时：按 `inbox/README.md` 归类重命名 → 迁入 `assets/` 或 `docs/` → 删除 `inbox/` 原文件 → 同步本表与入口文档（`AGENTS.md`、`CLAUDE.md`、`docs/README.md`、`assets/README.md`）。
-
-改 ppt-master 版 PPT：`.claude/skills/ppt-master/SKILL.md`；导出后更新 `assets/theme/ppt/agentcfo-pitch.pptx`。
-
-执行 README 合并时：先读 `docs/plans/README-merge-plan.md`；合并后同步 `README.md` 与 `docs/backend/`。
+新投递目标与债务说明以 `assets/ASSET-MAP.md` 为准（**冲突时以最新 project-init 为准**）。
 
 ## Claude Code Skills（工作流）
 
 | Skill | 路径 | 何时用 |
 |---|---|---|
-| **agent-cfo-monorepo-workflow** | `.claude/skills/agent-cfo-monorepo-workflow/` | 仓库任意位置；角色边界、跨目录、phase 交接 |
-| **frontend-agent-workflow** | `frontend/.claude/skills/frontend-agent-workflow/` | 仅在 `frontend/` 开发；多 Agent、scope commit、HANDOFF |
-
-宪法文档：`CLAUDE.md` · `frontend/CLAUDE.md` — skills 是可执行 checklist，与 CLAUDE.md 同步。
-
----
+| **agent-cfo-monorepo-workflow** | `.claude/skills/agent-cfo-monorepo-workflow/` | 角色边界、跨目录、phase 交接 |
+| **frontend-agent-workflow** | `frontend/.claude/skills/frontend-agent-workflow/` | 仅在 `frontend/` |
+| **project-init**（全局） | `~/.agents/skills/project-init/` · 仓内副本 `docs/knowledge/project-init.md` | 初始化 / 治理对齐 |
+| Matt 系 | `to-prd` · `to-issues` · `triage` · `handoff` · `grill-me` | 任务流；读 `docs/agents/*` |
 
 ## 6. 协作原则
 
 - 改 API 前先对齐契约；前端不得发明字段或端点
-- 跨目录改动先申请（前端 ↔ 后端 ↔ 合约 ↔ 物料）
+- 跨目录改动先申请
 - 提交前跑对应角色的 typecheck / test / build
 - Demo 场景数据全团队一致（Bob = blocked）
-- 更新交付物路径或文档结构时，同步维护 `README.md`、`AGENTS.md`、`CLAUDE.md`、`docs/README.md`
-
----
+- PRD 未批准不写功能代码；Review 先于 commit
+- 更新交付物路径时同步 `ASSET-MAP` / 相关索引，不发明第二套事实
 
 ## Git Workflow Discipline（全 Agent）
 
 - 多 Agent 并行时，改前先 `git pull origin main`
 - **push 前必须检查远端**：`git fetch origin main`，然后 `git log HEAD..origin/main --oneline`
 - 若远端有领先提交，必须先 `git pull` 合并后再 push
-- 出现冲突时停止，把冲突文件列给用户，由用户或负责协调的 Agent 决策
+- 出现冲突时停止，把冲突文件列给用户
 - 不要 `--force` push，除非用户明确授权
+- commit-history：`docs/outputs/commit-history/{branch}/YYYY-MM-DD.md`（见 `.cursor/rules/commit-history.mdc`）
 
 ---
 
