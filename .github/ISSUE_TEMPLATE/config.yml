@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Live Demo
+    about: Try the frontend demo (mock mode by default).
+    url: https://agentcfo-frontend.vercel.app
+  - name: Security report
+    about: Do not post secrets in public issues — see SECURITY.md.
+    url: https://github.com/Aafff623/agent-cfo/blob/main/SECURITY.md
