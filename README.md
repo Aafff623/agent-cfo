@@ -13,12 +13,27 @@
   <a href="https://agentcfo-backend.onrender.com/health"><img src="https://img.shields.io/badge/API-Render-3B82F6?style=for-the-badge&labelColor=0f172a" alt="Backend"></a>
   <img src="https://img.shields.io/badge/赛道-Cobo%20Agentic%20Economy-8B5CF6?style=for-the-badge&labelColor=0f172a" alt="Track">
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="License">
-  <a href="https://github.com/San-Y108/agent-cfo"><img src="https://img.shields.io/github/stars/San-Y108/agent-cfo.svg?style=for-the-badge" alt="GitHub stars"></a>
+  <a href="https://github.com/Aafff623/agent-cfo"><img src="https://img.shields.io/github/stars/Aafff623/agent-cfo.svg?style=for-the-badge" alt="GitHub stars"></a>
 </p>
 
 <p align="center">
-  <a href="#功能">功能</a> · <a href="#演示">演示</a> · <a href="#快速开始">快速开始</a> · <a href="#架构">架构</a> · <a href="#api-参考">API 参考</a> · <a href="#路线图">路线图</a> · <a href="#文档">文档</a> · <a href="#团队">团队</a> · <a href="#许可证">许可证</a>
+  <a href="#本仓库">本仓库</a> · <a href="#功能">功能</a> · <a href="#演示">演示</a> · <a href="#快速开始">快速开始</a> · <a href="#架构">架构</a> · <a href="#api-参考">API 参考</a> · <a href="#路线图">路线图</a> · <a href="#文档">文档</a> · <a href="#团队">团队</a> · <a href="#许可证">许可证</a>
 </p>
+
+---
+
+## 本仓库
+
+本仓库是黑客松原版 [San-Y108/agent-cfo](https://github.com/San-Y108/agent-cfo) 的 **个人维护 fork**，由 [@Aafff623](https://github.com/Aafff623)（**threetwoa**）托管，用于赛后个性化二开与持续迭代。
+
+| 项 | 说明 |
+|---|---|
+| **当前主仓** | [`Aafff623/agent-cfo`](https://github.com/Aafff623/agent-cfo) |
+| **主维护者** | threetwoa — 前端 Console / Landing、README 打磨与配图叙事、Demo 视频录制与展示链路，以及本 fork 的后续演进 |
+| **上游关系** | 保留黑客松小队协作成果与赛道叙事；日常开发、Issue、二开以本仓为准 |
+| **克隆** | `git clone https://github.com/Aafff623/agent-cfo.git` |
+
+> 下文「团队」表记录参赛时期的角色分工，便于复盘与致谢；**本 fork 的代码与文档默认由 threetwoa 维护**。
 
 ---
 
@@ -125,7 +140,7 @@ Contribution Records → AI Payment Plan → Risk Check → Human Approval
 ### 30 秒看 Demo（前端 mock mode）
 
 ```bash
-git clone https://github.com/San-Y108/agent-cfo.git
+git clone https://github.com/Aafff623/agent-cfo.git
 cd agent-cfo/frontend
 pnpm install
 PORT=3100 pnpm dev
@@ -174,7 +189,7 @@ curl http://127.0.0.1:8000/api/demo-sample
 <summary>Windows — 本地后端开发</summary>
 
 ```powershell
-git clone https://github.com/San-Y108/agent-cfo.git
+git clone https://github.com/Aafff623/agent-cfo.git
 cd agent-cfo
 python -m venv .venv
 .venv\Scripts\python -m pip install -r requirements.txt
@@ -195,7 +210,7 @@ curl.exe http://127.0.0.1:8000/api/demo-sample
 <summary>macOS / Linux — 本地后端开发</summary>
 
 ```bash
-git clone https://github.com/San-Y108/agent-cfo.git
+git clone https://github.com/Aafff623/agent-cfo.git
 cd agent-cfo
 python -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
@@ -209,7 +224,7 @@ python -m venv .venv
 <summary>队友交接 — 前端 / CAW 同学拿 mock API</summary>
 
 ```bash
-git clone https://github.com/San-Y108/agent-cfo.git
+git clone https://github.com/Aafff623/agent-cfo.git
 cd agent-cfo
 git pull
 git log --oneline --max-count=3
@@ -431,18 +446,26 @@ P2 提供 metadata / preview / simulation 类端点，不改变 P0 授权与 Aud
 
 ## 团队
 
+### 本仓维护（fork 后）
+
+| Avatar | 姓名 | 角色 | 职责 | 3D 形象 |
+|---|---|---|---|---|
+| <a href="assets/images/avatar/threetwoa-role.jpg"><img src="assets/images/avatar/threetwoa-role.jpg" width="80" alt="threetwoa"></a> | **[threetwoa](https://github.com/Aafff623)** | **主维护 · 二开** | 本 fork 日常维护；前端 Landing / Console；README 结构与展示打磨；Demo 视频录制与嵌入；赛后个性化迭代 | <a href="assets/images/avatar/threetwoa-mascot.png"><img src="assets/images/avatar/threetwoa-mascot.png" width="100" alt="threetwoa 3D"></a> |
+
+### 黑客松参赛小队（致谢）
+
+原版协作仍记一笔，方便复盘；角色为赛期分工，不等于本 fork 的当前维护边界。
 
 | Avatar | 姓名 | 角色 | 职责 | 3D 形象 |
 |---|---|---|---|---|
 | <a href="assets/images/avatar/zanyk-role.jpg"><img src="assets/images/avatar/zanyk-role.jpg" width="80" alt="ZanyK"></a> | **ZanyK** | 指导 / 交付总控 | 项目统筹、路演、GitHub、最终交付 | <a href="assets/images/avatar/zanyk-mascot.png"><img src="assets/images/avatar/zanyk-mascot.png" width="100" alt="ZanyK 3D"></a> |
 | <a href="assets/images/avatar/huan-role.jpg"><img src="assets/images/avatar/huan-role.jpg" width="80" alt="欢"></a> | **欢** | PM | 需求拆解、路线管理、站会与交付协同 | <a href="assets/images/avatar/huan-mascot.png"><img src="assets/images/avatar/huan-mascot.png" width="100" alt="欢 3D"></a> |
-| <a href="assets/images/avatar/guagua-role.jpg"><img src="assets/images/avatar/guagua-role.jpg" width="80" alt="呱呱"></a> | **呱呱** | 物料 / 设计 / 内容 | PPT、海报、视频、文案、视觉资产 | <a href="assets/images/avatar/guagua-mascot.png"><img src="assets/images/avatar/guagua-mascot.png" width="100" alt="呱呱 3D"></a> |
-| <a href="assets/images/avatar/threetwoa-role.jpg"><img src="assets/images/avatar/threetwoa-role.jpg" width="80" alt="threetwoa"></a> | **threetwoa** | 前端 | Landing + Console 界面、Mock 模式演示 | <a href="assets/images/avatar/threetwoa-mascot.png"><img src="assets/images/avatar/threetwoa-mascot.png" width="100" alt="threetwoa 3D"></a> |
+| <a href="assets/images/avatar/guagua-role.jpg"><img src="assets/images/avatar/guagua-role.jpg" width="80" alt="呱呱"></a> | **呱呱** | 物料 / 设计 / 内容 | PPT、海报、文案、视觉资产 | <a href="assets/images/avatar/guagua-mascot.png"><img src="assets/images/avatar/guagua-mascot.png" width="100" alt="呱呱 3D"></a> |
+| <a href="assets/images/avatar/threetwoa-role.jpg"><img src="assets/images/avatar/threetwoa-role.jpg" width="80" alt="threetwoa"></a> | **[threetwoa](https://github.com/Aafff623)** | 前端 · README · Demo | Landing + Console、README 打磨、Demo 视频 | <a href="assets/images/avatar/threetwoa-mascot.png"><img src="assets/images/avatar/threetwoa-mascot.png" width="100" alt="threetwoa 3D"></a> |
 | <a href="assets/images/avatar/jiujiu-role.jpg"><img src="assets/images/avatar/jiujiu-role.jpg" width="80" alt="九九八乂"></a> | **九九八乂** | 后端 / Agent | FastAPI、Payment Plan、Risk Check、Audit Report | <a href="assets/images/avatar/jiujiu-mascot.png"><img src="assets/images/avatar/jiujiu-mascot.png" width="100" alt="九九八乂 3D"></a> |
 | <a href="assets/images/avatar/purple-sun-role.jpg"><img src="assets/images/avatar/purple-sun-role.jpg" width="80" alt="purple sun"></a> | **purple sun** | 合约 / CAW | Cobo Agentic Wallet 集成、测试网付款证据 | <a href="assets/images/avatar/purple-sun-mascot.png"><img src="assets/images/avatar/purple-sun-mascot.png" width="100" alt="purple sun 3D"></a> |
 
-
-> GitHub 主页链接待后续补充。
+> 当前主仓与维护入口：[github.com/Aafff623/agent-cfo](https://github.com/Aafff623/agent-cfo) · 上游原版：[San-Y108/agent-cfo](https://github.com/San-Y108/agent-cfo)
 
 ### 赛事
 
@@ -553,7 +576,7 @@ AgentCFO 对应 Cobo 赛道建议方向：
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=San-Y108/agent-cfo&type=Date)](https://star-history.com/#San-Y108/agent-cfo&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=Aafff623/agent-cfo&type=Date)](https://star-history.com/#Aafff623/agent-cfo&Date)
 
 ## 许可证
 
@@ -561,4 +584,4 @@ AgentCFO 对应 Cobo 赛道建议方向：
 
 ---
 
-Made with ❤️ by ZanyK · 欢 · 呱呱 · threetwoa · 九九八乂 · purple sun
+Maintained by [threetwoa](https://github.com/Aafff623) · fork of the hackathon build with ZanyK · 欢 · 呱呱 · 九九八乂 · purple sun
