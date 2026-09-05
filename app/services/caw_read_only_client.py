@@ -156,7 +156,7 @@ class RealCawReadOnlyClient(CawReadOnlyClient):
             ext=True,
         )
         return [
-            _transaction_record_from_provider(transaction, str(_result_value(transaction, "request_id")))
+            _transaction_record_from_provider(transaction, _request_id_fallback(transaction))
             for transaction in _result_items(transactions)
         ]
 
@@ -229,6 +229,11 @@ def _result_items(result) -> list:
         if isinstance(value, list):
             return value
     return []
+
+
+def _request_id_fallback(transaction) -> str:
+    value = _result_value(transaction, "request_id") or _result_value(transaction, "requestId")
+    return str(value) if value is not None else ""
 
 
 def _transaction_record_from_provider(transaction, fallback_request_id: str) -> CawTransactionRecord:
