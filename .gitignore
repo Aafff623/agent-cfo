@@ -19,3 +19,20 @@ Untitled
 assets/theme/ppt/**/.live_preview.lock
 assets/theme/ppt/**/exports/
 assets/theme/ppt/**/backup/
+
+# Local working / scratch area (never commit)
+temp/
+
+# Code intelligence indexes (local only)
+.codegraph/
+.gitnexus/
+
+# Logs and OS noise
+*.log
+logs/
+.DS_Store
+Thumbs.db
+
+# 本地 Agent 工具资产（原误提交，解除跟踪后本地保留）
+.claude/
+.agents/
